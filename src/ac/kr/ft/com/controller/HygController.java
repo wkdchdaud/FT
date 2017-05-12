@@ -1,4 +1,4 @@
-package ac.kr.ft.com.controller;
+package ac.kr.ft.com.controller;///ì¥ì´ëª…
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -29,7 +29,7 @@ public class HygController {
 
    @RequestMapping("hyg")
    public String add(@RequestParam Map<String, Object> map, ModelMap model) {
-      System.out.println("È­ÀÌÆÃÇÏÀÚ");
+      System.out.println("í™”ì´íŒ…í•˜ì");
       return "/hyg/samplePage";
    }
 
@@ -63,7 +63,7 @@ public class HygController {
    }
 
    /**
-    * µî·ÏÈ­¸é º¸¿©ÁÖ±â
+    * ë“±ë¡í™”ë©´ ë³´ì—¬ì£¼ê¸°
     */
    @RequestMapping("hyg/hygReg")
    public String insertForm(HttpServletRequest request, HttpServletResponse response, ModelMap model)
@@ -76,7 +76,7 @@ public class HygController {
    }
 
    /**
-    * µî·Ïµ¥ÀÌÅÍ db ÀúÀåÇÏ±â
+    * ë“±ë¡ë°ì´í„° db ì €ì¥í•˜ê¸°
     */
    @RequestMapping("hyg/hygInsert")
    public String createHYGInfo(HttpSession session, HttpServletRequest request, HttpServletResponse response,
@@ -118,12 +118,12 @@ public class HygController {
       log.info("contents : " + CmmUtil.nvl(request.getParameter("contents")));
       log.info("fileGRP : " + CmmUtil.nvl(request.getParameter("fileGRP")));
 
-      // select seq·Î °ª ¹Ş¾Æ¿Í¼­ view µıÀÇ detail·Î º¸³»¸é
-      // ÀÌ°Å´ë½Å¿¡ ¸ğµ¨.¿¡µ÷
+      // select seqë¡œ ê°’ ë°›ì•„ì™€ì„œ view ë”´ì˜ detailë¡œ ë³´ë‚´ë©´
+      // ì´ê±°ëŒ€ì‹ ì— ëª¨ë¸.ì—ë”§
       if (hyg.createHYGInfo(hygDto)) {
-         request.setAttribute("msg", "µî·Ï µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ë“±ë¡ ë˜ì—ˆìŠµë‹ˆë‹¤");
       } else {
-         request.setAttribute("msg", "µî·Ï ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ë“±ë¡ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
       }
       // request.setAttribute("url", "detail.do?hyg_seq=1");
 
@@ -138,9 +138,9 @@ public class HygController {
       HygDTO hygDto = new HygDTO();
       hygDto.setHgn_seq(CmmUtil.nvl(request.getParameter("hgn_seq")));
       if (hyg.deleteHYGInfo(hygDto)) {
-         request.setAttribute("msg", "»èÁ¦°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
       } else {
-         request.setAttribute("msg", "»èÁ¦°¡ ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
       }
       request.setAttribute("url", "hygList.do");
       return "/redirect";
@@ -191,9 +191,9 @@ public class HygController {
       hygDto.setChg_user_no(CmmUtil.nvl(request.getParameter("ADMINUSER_NO")));
 
       if (hyg.updateHYGInfo(hygDto)) {
-         request.setAttribute("msg", "¼öÁ¤ÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ìˆ˜ì •ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
       } else {
-         request.setAttribute("msg", "¼öÁ¤ÀÌ ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ìˆ˜ì •ì´ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
       }
       request.setAttribute("url", "hygList.do");
       return "/redirect";
@@ -211,10 +211,10 @@ public class HygController {
       pDTO.setAllCheckSeq(allCheckSeq);
 
       if (hyg.deleteAllCheckList(pDTO)) {
-         request.setAttribute("msg", "»èÁ¦°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
 
       } else {
-         request.setAttribute("msg", "»èÁ¦°¡ ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
 
       }
 
@@ -228,7 +228,7 @@ public class HygController {
    }
    /*
     * ##########################################################################
-    * #                  »ç¾÷ÀÚ¿ë ½ÃÀÛ                              #
+    * #                  ì‚¬ì—…ììš© ì‹œì‘                              #
     * ##########################################################################
     * 
     * */
@@ -276,7 +276,7 @@ public class HygController {
    }
 
    /**
-    * µî·Ïµ¥ÀÌÅÍ db ÀúÀåÇÏ±â
+    * ë“±ë¡ë°ì´í„° db ì €ì¥í•˜ê¸°
     */
    @RequestMapping("hyg/busihygInsert")
    public String createBusiHYGInfo(HttpSession session, HttpServletRequest request, HttpServletResponse response,
@@ -311,12 +311,12 @@ public class HygController {
       log.info("contents : " + CmmUtil.nvl(request.getParameter("contents")));
       log.info("fileGRP : " + CmmUtil.nvl(request.getParameter("fileGRP")));
 
-      // select seq·Î °ª ¹Ş¾Æ¿Í¼­ view µıÀÇ detail·Î º¸³»¸é
-      // ÀÌ°Å´ë½Å¿¡ ¸ğµ¨.¿¡µ÷
+      // select seqë¡œ ê°’ ë°›ì•„ì™€ì„œ view ë”´ì˜ detailë¡œ ë³´ë‚´ë©´
+      // ì´ê±°ëŒ€ì‹ ì— ëª¨ë¸.ì—ë”§
       if (hyg.createHYGInfo(hygDto)) {
-         request.setAttribute("msg", "µî·Ï µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ë“±ë¡ ë˜ì—ˆìŠµë‹ˆë‹¤");
       } else {
-         request.setAttribute("msg", "µî·ÏÀÌ  ½ÇÆĞµÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ë“±ë¡ì´  ì‹¤íŒ¨ë˜ì—ˆìŠµë‹ˆë‹¤");
       }
       // request.setAttribute("url", "detail.do?hyg_seq=1");
 
@@ -332,9 +332,9 @@ public class HygController {
       HygDTO hygDto = new HygDTO();
       hygDto.setHgn_seq(CmmUtil.nvl(request.getParameter("hgn_seq")));
       if (hyg.deleteHYGInfo(hygDto)) {
-         request.setAttribute("msg", "»èÁ¦°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
       }else{
-         request.setAttribute("msg", "»èÁ¦°¡ ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
       }
       request.setAttribute("url", "busiHygList.do");
       return "/redirect";
@@ -390,9 +390,9 @@ public class HygController {
       hygDto.setChg_user_no(CmmUtil.nvl(request.getParameter("chg_user_no")));
 
       if (hyg.updateHYGInfo(hygDto)) {
-         request.setAttribute("msg", "¼öÁ¤ÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ìˆ˜ì •ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
       } else {
-         request.setAttribute("msg", "¼öÁ¤ÀÌ ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ìˆ˜ì •ì´ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
       }
       request.setAttribute("url", "busiHygList.do");
       return "/redirect";
@@ -410,10 +410,10 @@ public class HygController {
       pDTO.setAllCheckSeq(allCheckSeq);
 
       if (hyg.deleteAllCheckList(pDTO)) {
-         request.setAttribute("msg", "»èÁ¦°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤");
 
       } else {
-         request.setAttribute("msg", "»èÁ¦°¡ ½ÇÆĞ µÇ¾ú½À´Ï´Ù");
+         request.setAttribute("msg", "ì‚­ì œê°€ ì‹¤íŒ¨ ë˜ì—ˆìŠµë‹ˆë‹¤");
 
       }
 
@@ -427,7 +427,7 @@ public class HygController {
    }
    /*
     * ##########################################################################
-    * #                  »ç¾÷ÀÚ ¿ë ³¡.                              #
+    * #                  ì‚¬ì—…ì ìš© ë.                              #
     * ##########################################################################
     * 
     * */      
@@ -438,7 +438,7 @@ public class HygController {
    
    /*
     * ##########################################################################
-    * #                  »ç¿ëÀÚ ¿ë ½ÃÀÛ                           #
+    * #                  ì‚¬ìš©ì ìš© ì‹œì‘                           #
     * ##########################################################################
     * 
     * */      
@@ -479,7 +479,7 @@ public class HygController {
    
    /*
     * ##########################################################################
-    * #                  »ç¿ëÀÚ ¿ë ³¡                           #
+    * #                  ì‚¬ìš©ì ìš© ë                           #
     * ##########################################################################
     * 
     * */      
